@@ -147,7 +147,7 @@ elseif (APPLE)
     include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/platform/posix)
 
 else ()
-#    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/platform/linux)
+    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/platform/linux)
     include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/platform/posix)
 endif ()
 
