@@ -12,7 +12,8 @@
 
 #ifndef __GLIBC__
 
-#include <bits/reg.h>
+//#include <bits/reg.h>
+#include <machine/reg.h>
 
 #endif
 

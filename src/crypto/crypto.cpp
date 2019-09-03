@@ -11,7 +11,8 @@
 #include "hash.h"
 #include "random.h"
 
-#include <alloca.h>
+//#include <alloca.h>
+#include <stdlib.h>
 #include <cassert>
 #include <cstddef>
 #include <cstdint>

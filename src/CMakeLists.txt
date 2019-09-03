@@ -51,7 +51,9 @@ if (MSVC)
 elseif (APPLE)
     file(GLOB_RECURSE System system/* platform/osx/system/* platform/posix/system/*)
 else ()
-    file(GLOB_RECURSE System system/* platform/linux/system/* platform/posix/system/*)
+#//    file(GLOB_RECURSE System system/* platform/linux/system/* platform/posix/system/*)
+   file(GLOB_RECURSE System system/*  platform/posix/system/*)
+
 endif ()
 
 # Group the files together in IDEs

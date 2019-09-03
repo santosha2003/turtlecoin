@@ -5,7 +5,8 @@
 
 #include "hash-ops.h"
 
-#include <alloca.h>
+//#include <alloca.h>
+#include <stdlib.h>
 #include <assert.h>
 #include <stddef.h>
 #include <string.h>

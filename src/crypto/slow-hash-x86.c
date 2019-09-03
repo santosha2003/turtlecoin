@@ -15,6 +15,8 @@
 // Optimised code below, uses x86-specific intrinsics, SSE2, AES-NI
 // Fall back to more portable code is down at the bottom
 
+#include "oaes_lib.h"
+
 #include <emmintrin.h>
 
 #if defined(_MSC_VER)
@@ -205,9 +207,10 @@ STATIC INLINE void aes_256_assist1(__m128i *t1, __m128i *t2)
     *t1 = _mm_xor_si128(*t1, *t2);
 }
 
-STATIC INLINE void aes_256_assist2(__m128i *t1, __m128i *t3)
+STATIC INLINE void aes_256_assist2(__m128i* t1, __m128i * t3)
 {
     __m128i t2, t4;
+
     t4 = _mm_aeskeygenassist_si128(*t1, 0x00);
     t2 = _mm_shuffle_epi32(t4, 0xaa);
     t4 = _mm_slli_si128(*t3, 0x04);

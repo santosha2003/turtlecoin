@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# make -C /usr/ports/lang/python3 build deinstall install
+ env PYTHON3=/usr/local/bin/python3
+# pkg install cppzmq doxygen libsodium
+#git add CMakeLists.txt src/cryptonote_basic/miner.cpp
+#git add make-FreeBSD
+#git commit -m "FreeBSD 12 : SEM lmdb wallet miniupnpc patch "
+git pull --no-edit origin master
+#git push copy
+
+git submodule init
+git submodule update
+#cd ~/masari
+mkdir build
+#mkdir build/release
+#cd build/release
+cd build
+#gcc v8+
+#export CC=/usr/local/bin/gcc
+#export CXX=/usr/local/bin/g++
+
+pkg install git gcc7 cmake libuv libmicrohttpd
+cmake -DCMAKE_C_COMPILER=gcc7 -DCMAKE_CXX_COMPILER=g++7 -DBUILD_TESTS=OFF -DCMAKE_LINKER=/usr/local/bin/ld ..
+make
+#cmake ../..

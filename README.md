@@ -13,6 +13,46 @@ We offer binary images of the latest releases here: http://latest.turtlecoin.lol
 If you would like to compile yourself, read on.
 
 ### How To Compile
+! FreeBSD 12 masternode (or mining pool)
+ (03-sep-2019)
+ * make-FreeBSD  (edit src/platform/linux ..  CmakeList.txt)
+----------------
+#!/usr/bin/env bash
+
+#+ freebsd release 12 boost libs 1.69
+# make -C /usr/ports/devel/git build deinstall install
+# make -C /usr/ports/lang/python3 build deinstall install
+
+#git fetch upstream
+#git checkout master
+#git merge upstream/master
+
+
+ env PYTHON3=/usr/local/bin/python3
+ pkg install -f cppzmq doxygen libsodium binutils python3 p5-Google-ProtocolBuffers p5-Google-Chart p5-Google-Data-JSON
+# make -C /usr/ports/devel/boost-libs build deinstall install
+#git add make-FreeBSD CMakeLists.txt
+#git add CMakeLists.txt src/cryptonote_basic/miner.cpp
+#git add make-FreeBSD
+#git commit -m "FreeBSD 12 build OK testing bc synchronize : SEM lmdb wallet miniupnpc patch, cmake list from Monero code, build script"
+#git pull origin master
+#git push copy
+
+
+git submodule init
+git submodule update
+#cd ~/monero   
+#cd ~/turtlecoin
+mkdir build
+mkdir build/release
+cd build/release
+
+# FreeBSD 12 GNU linker (pkg ins binutils)  Clang 8
+ cmake -D BUILD_TESTS=OFF -DCMAKE_LINKER=/usr/local/bin/ld -D CMAKE_BUILD_TYPE=release ../..
+#-DCMAKE_LINKER=/usr/local/bin/ld  
+#cmake ../..
+ make
+------------------
 
 #### Build Optimization
 
